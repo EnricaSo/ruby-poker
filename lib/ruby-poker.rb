@@ -1,2 +1,2 @@
-require 'ruby-poker/card'
-require 'ruby-poker/poker_hand'
+require './lib/ruby-poker/card'
+require './lib/ruby-poker/poker_hand'
