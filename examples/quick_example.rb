@@ -13,7 +13,11 @@ puts hand1 > hand2
 
 hand3 = PokerHand.new(["4D", "4C", "4S", "4D", "AH"])
 puts hand3 > hand2
+hand4 = PokerHand.new(["AD", "AC", "AS", "4D", "AH"])
+puts hand4 > hand2
 
 # puts hand1 > hand2
 
 hand5 = PokerHand.new(["2D", "2C", "2S", "KD", "AH"])
+# Comment on branch Chica
+# Third comment on branch Chico
