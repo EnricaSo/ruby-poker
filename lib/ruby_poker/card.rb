@@ -72,10 +72,10 @@ class Card
     elsif args.size == 2
       arg1, arg2 = args
       if arg1.respond_to?(:to_str) &&
-        arg2.respond_to?(:to_str)
+         arg2.respond_to?(:to_str)
         build_from_face_suit(arg1, arg2)
       elsif arg1.respond_to?(:to_int) &&
-        arg2.respond_to?(:to_int)
+            arg2.respond_to?(:to_int)
         build_from_face_suit_values(arg1, arg2)
       end
     end
