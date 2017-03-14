@@ -474,7 +474,7 @@ end
                 prev_card - card.face
               else
                 0
-      end
+              end
       # does not really matter for my needs
       delta = 'x' if delta > 9 || delta < 0
       delta_hand += delta.to_s + card.to_s + ' '
