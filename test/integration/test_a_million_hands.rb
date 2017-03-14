@@ -55,17 +55,17 @@
 
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
-SUITS = ['H', 'S', 'D', 'C']
+SUITS = %w(H S D C).freeze
 
-data_file = File.expand_path(File.dirname(__FILE__) + "/../support/fixtures/poker-hand-testing.data")
+data_file = File.expand_path(File.dirname(__FILE__) + '/../support/fixtures/poker-hand-testing.data')
 
 if File.exist?(data_file)
-  puts "Starting integration test....this could take a while"
+  puts 'Starting integration test....this could take a while'
 else
-  warn "*"*80
+  warn '*' * 80
   warn "Could not find #{data_file}"
-  warn "Please see README for instructions running integration tests"
-  warn "*"*80
+  warn 'Please see README for instructions running integration tests'
+  warn '*' * 80
   exit(1)
 end
 
@@ -76,18 +76,17 @@ File.new(data_file).each do |line|
 
   cards = []
   columns.each_slice(2) do |suit, face_value|
-
     # The translations below come from the ordering of suits within the Card class
     rp_suit = case suit.to_i
-    when 1 # Hearts
-      2
-    when 2 # Spades
-      3
-    when 3 # Diamonds
-      1
-    when 4 # Clubs
-      0
-    end
+              when 1 # Hearts
+                2
+              when 2 # Spades
+                3
+              when 3 # Diamonds
+                1
+              when 4 # Clubs
+                0
+              end
 
     rp_face_value = face_value.to_i - 1
     # in ruby-poker Aces have the highest value
@@ -97,10 +96,8 @@ File.new(data_file).each do |line|
   end
 
   hand = PokerHand.new(cards)
-  score = hand.score[0][0]  # don't know what was I thinking with this double nested array
+  score = hand.score[0][0] # don't know what was I thinking with this double nested array
 
-  if score - 1 != expected_rank
-    puts "\nInconsistency found in: #{line}"
-  end
-  print "."
+  puts "\nInconsistency found in: #{line}" if score - 1 != expected_rank
+  print '.'
 end

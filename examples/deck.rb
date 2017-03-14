@@ -13,7 +13,7 @@ class Deck
 
   def shuffle
     @cards = @cards.sort_by { rand }
-    return self
+    self
   end
 
   # removes a single card from the top of the deck and returns it

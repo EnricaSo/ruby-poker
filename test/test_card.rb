@@ -3,11 +3,11 @@ require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 class TestCard < Test::Unit::TestCase
   def setup
     # testing various input formats for cards
-    @c1 = Card.new("9c")
-    @c2 = Card.new("TD")
-    @c3 = Card.new("jh")
-    @c4 = Card.new("qS")
-    @c5 = Card.new("AC")
+    @c1 = Card.new('9c')
+    @c2 = Card.new('TD')
+    @c3 = Card.new('jh')
+    @c4 = Card.new('qS')
+    @c5 = Card.new('AC')
   end
 
   def test_class_face_value
@@ -16,7 +16,7 @@ class TestCard < Test::Unit::TestCase
   end
 
   def test_build_from_card
-    assert_equal("9c", Card.new(@c1).to_s)
+    assert_equal('9c', Card.new(@c1).to_s)
   end
 
   def test_build_from_value
@@ -38,7 +38,7 @@ class TestCard < Test::Unit::TestCase
   def test_build_from_value_and_from_face_suit_match
     ticker = 0
     Card::SUITS.each_char do |suit|
-      "23456789TJQKA".each_char do |face|
+      '23456789TJQKA'.each_char do |face|
         ticker += 1
         from_value = Card.new(ticker)
         from_face_suit = Card.new(face, suit)
@@ -84,9 +84,9 @@ class TestCard < Test::Unit::TestCase
   end
 
   def test_natural_value
-    assert_equal(1, Card.new("AC").natural_value)
-    assert_equal(15, Card.new("2D").natural_value)
-    assert_equal(52, Card.new("KS").natural_value)
+    assert_equal(1, Card.new('AC').natural_value)
+    assert_equal(15, Card.new('2D').natural_value)
+    assert_equal(52, Card.new('KS').natural_value)
   end
 
   def test_comparison
@@ -95,7 +95,7 @@ class TestCard < Test::Unit::TestCase
   end
 
   def test_equals
-    c = Card.new("9h")
+    c = Card.new('9h')
     assert_not_equal(@c1, c)
     assert_equal(@c1, @c1)
   end

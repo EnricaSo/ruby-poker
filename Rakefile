@@ -14,4 +14,4 @@ Rake::TestTask.new do |t|
   t.test_files = FileList['test/integration/test_a_million_hands.rb']
 end
 
-task :default => :test
+task default: :test
