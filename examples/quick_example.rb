@@ -1,5 +1,5 @@
 require 'rubygems'
-require './lib/ruby-poker'
+require './lib/ruby_poker'
 
 hand1 = PokerHand.new('8H 9C TC JD QH')
 hand2 = PokerHand.new(%w(3D 3C 3S KD AH))
