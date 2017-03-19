@@ -8,7 +8,7 @@ nl = 4 													# number of lookup suits
 ns = 10 												# number of suits per lookup
 seh = 7													# size of extanded hand
 soh = 5													# size of optimized hand
-nh =  seh.among(nc)	# number of hands
+nh =  seh.among(nc)										# number of hands
 puts nh
 n10 = nl * 2.among(nc - 5)
 puts n10
