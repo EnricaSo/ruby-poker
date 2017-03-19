@@ -1,4 +1,5 @@
-require File.expand_path(File.dirname(__FILE__) + '/test_helper')
+# require File.expand_path(File.dirname(__FILE__) + '/test_helper')
+require './test/test_helper'
 
 class TestPokerHand < Test::Unit::TestCase
   context 'A PokerHand instance' do

@@ -53,7 +53,8 @@
 # 8: Straight flush; straight + flush
 # 9: Royal flush; {Ace, King, Queen, Jack, Ten} + flush
 
-require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
+# require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
+require './test/test_helper'
 
 SUITS = %w(H S D C).freeze
 

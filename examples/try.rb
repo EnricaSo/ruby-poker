@@ -1,3 +1,5 @@
+require './lib/utils/math_combinatory'
+
 class C
   a = 5
   module M
