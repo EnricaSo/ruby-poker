@@ -7,7 +7,7 @@ class Integer
   def factorial2
 	  result = 1
 	  self.times do |i|
-	  	result *= i
+	  	result *= i+1
 	  end
 	  result
   end
@@ -21,18 +21,25 @@ end
 # puts 4.! #return 24...
 # puts 4.among(10)
 
- tic = Time.now
-100000.times do
-	50.factorial2
-end
-toc = Time.now
-ret = toc - tic
-puts ret
-
- tic = Time.now
-100000.times do
-	50.!
-end
-toc = Time.now
-ret = toc - tic
-puts ret
+#  tic = Time.now
+# b = 0
+# 100000.times do
+# 	b = (50.factorial2)
+#
+# 	end
+# puts b
+# toc = Time.now
+# ret = toc - tic
+# puts ret
+#
+#  tic = Time.now
+#  c = 0
+# 100000.times do
+# 	c = 50.!
+# end
+# puts c
+# toc = Time.now
+# ret = toc - tic
+# puts ret
+#
+# puts c==b
