@@ -3,6 +3,7 @@ class PokerHand
   include Enumerable
   attr_reader :hand
 
+
   @@allow_duplicates = true # true by default
   def self.allow_duplicates
     @@allow_duplicates
