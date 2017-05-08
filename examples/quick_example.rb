@@ -2,7 +2,7 @@ require 'rubygems'
 require './lib/ruby_poker'
 
 hand1 = PokerHand.new('8H 9C TC JD QH')
-hand2 = PokerHand.new(%w(3D 3C 3S AD KH))
+hand2 = PokerHand.new(%w(3D 4C 5S AD KH))
 # puts hand1
 # puts hand1.just_cards
 # puts hand1.rank
@@ -10,7 +10,7 @@ hand2 = PokerHand.new(%w(3D 3C 3S AD KH))
 puts hand1 > hand2
 
 # Returns the best combo of the hand
-puts hand1.rank
+# puts hand1.rank
 # Returns some score of the hand
 puts hand2.score
 
