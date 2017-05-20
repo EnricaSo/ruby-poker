@@ -26,4 +26,8 @@ puts hand2.score
 # 1: ['Highest Card',    :highest_card?],
 # 0: ['Empty Hand',      :empty_hand?]
 
-# Stats
+hand3 = PokerHand.new('8H 9C TC JD QH')
+hand4 = PokerHand.new('8D 9S TS JH QD')
+
+puts (hand3 <=> hand4)
+puts hand2.score

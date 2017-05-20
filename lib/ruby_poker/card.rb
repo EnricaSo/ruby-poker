@@ -1,4 +1,5 @@
 class Card
+  # Constant proper to the env Card::
   SUITS = 'cdhs'.freeze
   FACES = 'L23456789TJQKA'.freeze
   SUIT_LOOKUP = {
@@ -24,10 +25,12 @@ class Card
     'A' => 13
   }.freeze
 
+  # Class methods
   def self.face_value(face)
     FACE_VALUES[face.upcase]
   end
 
+  # Private methods
   private
 
   def build_from_value(given_value)
@@ -57,6 +60,7 @@ class Card
     @face = card.face
   end
 
+  # Public methods
   public
 
   def initialize(*args)
@@ -116,7 +120,7 @@ class Card
   alias eql? ==
 
   # Compute a hash-code for this Card. Two Cards with the same
-  # content will have the same hash code (and will compare using eql?).
+  # content will have the same hash code (and will compare using equal?).
   def hash
     value.hash
   end
