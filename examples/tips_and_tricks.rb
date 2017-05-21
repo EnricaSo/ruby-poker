@@ -5,7 +5,8 @@ options = {
 	"Zipping two arrays to a hash in a blink"			=> 4,
 	"Build an array with an enumerable..." 				=> 5,
 	"Easiest tracking method method...of the universe"	=> 6,
- 	"Prepending string instead of creating new ones" 	=> 7
+	"Prepending string instead of creating new ones" 	=> 7,
+	"Easy search for regexp"							=> 8
 }
 p "Choose a trick:"
 options.each { |key, value| p "#{value}) #{key}"}
@@ -89,4 +90,16 @@ when 7
  	 timer2 = toc - tic
 	 p "10000 times creating a new string : #{timer1}"
 	 p "10000 times prepending a new string : #{timer2}"
+when 8
+	str = "Enrica Soria: Chichito's Ruby"
+
+	print " Regexp search, is similar to an array search : \n"
+	print "First result of the search : ", str[/(\w+) (\w+)/, 1], "\n" #same trick as N°1, but for regexp!
+	print "Second result of the search : ", str[/(\w+) (\w+)/, 2], "\n"
+	print "From the string, I want the surname...please : ", str[/(?<Surname>\w+) (?<Name>\w+)/, :Surname], "\n" #things become even incredible with symbols wich store the result of the search...
+	regexp = /(?<Surname>\w+) (?<Name>\w+)/
+	print "And now, the name, if that's possible... ! #{str[regexp, :Name]}\n"
+	print "Full result : ", str[regexp], "\n"
+	/ica/.match(str)
+	puts $~ # only useful when writing ruby in console (irb mode)
 end
