@@ -1,17 +1,17 @@
 options = {
-  'Regexp is GOOD, intelligence is BETTER' 					=> 1,
+  'Regexp is GOOD, intelligence is BETTER' 						=> 1,
   'Several modules for the same method name' 					=> 2,
-  'Act depending on the future in a loop function' 			=> 3,
-  'Zipping two arrays to a hash in a blink'					=> 4,
+  'Act depending on the future in a loop function' 				=> 3,
+  'Zipping two arrays to a hash in a blink'						=> 4,
   'Build an array with an enumerable...' 						=> 5,
   'Easiest tracking method...of the universe'					=> 6,
-  'Prepending string instead of creating new ones' 			=> 7,
-  'Easy search for regexp'									=> 8,
+  'Prepending string instead of creating new ones' 				=> 7,
+  'Easy search for regexp'										=> 8,
   "Only one block per function, so let's convert it to procs"	=> 9,
   'Strange ways to call procs...'								=> 10,
   'Closures'													=> 11,
-  'Be careful when copying'									=> 12
-
+  'Be careful when copying'										=> 12,
+  'Singleton methods and singleton classes'						=> 13
 }
 p 'Choose a trick:'
 options.each { |key, value| p "#{value}) #{key}" }
@@ -180,4 +180,70 @@ when 12
   puts "Chica's list is:"
   (1..(films_Chica.length)).each { |value| p "#{value}) #{films_Chica[value - 1]}" }
 
+when 13
+  p 'Did you know the existence of singleton methods and singleton classes?'
+  p 'Choose a definition. Type: '
+  singleton = {
+    'method' => 1,
+    'class' => 2,
+    'exit' => 'q'
+  }
+  singleton.select { |key, _value| key != 'exit' }.each do |key, value|
+    p "#{value} for singleton #{key}"
+  end
+
+  p "#{singleton['exit']} for exit"
+
+  begin
+    input = gets.chomp
+    case input
+    when '1'
+      p 'A singleton method is a method belonging to a single object.'
+    when '2'
+      p 'A singleton class is a class which defines a single object.'
+    when 'q'
+      puts 'Now have a look to the example I wrote for you!'
+      break
+    else
+      p 'Character not allowed'
+    end
+    print 'I know you want to know more... Type again:'
+  end while input != 'q'
+
+  class Box
+    def initialize(name)
+      @name = name
+    end
+  end
+
+  p 'I am creating a singleton method ...'
+  starprize = Box.new('Star Prize')
+  def starprize.congratulate
+    puts("You've won a fabulous holiday in Grimsby!")
+  end
+
+  p 'Now I check if the singleton method was well added.'
+  starprize.congratulate if starprize.singleton_methods.include?('congratulate')
+
+  p 'The same way, you can run this check on the method symbol:'
+  starprize.congratulate if starprize.respond_to?(:congratulate)
+
+  p 'I am creating a singleton class'
+  another_starprize = Box.new('Star Prize')
+  class << another_starprize
+    def congratulate
+      puts("You've won a fabulous holiday in Grimsby!")
+    end
+  end
+
+  another_starprize.congratulate
+
+  p "Singleton methods and classes looks quite similar concept, isn't it?"
+  p 'You are right. When you create a singleton class, singleton methods are added to the item.'
+  p "Let's run the check!"
+
+  another_starprize.congratulate if another_starprize.singleton_methods.include?('congratulate')
+  puts another_starprize.singleton_methods.include?('congratulate')
+
+  puts "There's a bug that I can't see!"
 end
