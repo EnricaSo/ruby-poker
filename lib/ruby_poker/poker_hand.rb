@@ -37,6 +37,12 @@ class PokerHand
     check_for_duplicates unless allow_duplicates
   end
 
+  def clone
+	  another_hand = PokerHand.new(@hand)
+	  return another_hand
+  end
+
+
   # Returns a new PokerHand object with the cards sorted by suit
   # The suit order is spades, hearts, diamonds, clubs
   #
